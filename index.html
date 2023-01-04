@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Hide message</title>
+
+  </head>
+
+  <body x-data="app_data">
+
+    <div>
+
+      <div>
+
+        <div>
+
+          <div>
+
+           <h1><b>H A C K U R</b></h1>
+
+           </div>
+
+          </div>
+
+        </div>
+
+        <div>
+
+          <a href="#" @click="tab = 'hide'" class="hide">
+            Hide Message
+          </a>
+
+          &nbsp;&nbsp;
+
+          <a href="#" @click="tab = 'reveal'" class="reveal">
+            Reveal Message
+          </a>
+
+        </div>
+
+      </div>
+
+      <div x-show="tab === 'hide'">
+
+        <h2>Hide Message</h2>
+
+        <div>
+
+          <div>
+
+            <label  for="i00">Hidden Message:</label>
+
+            <br>
+
+            <input class="placeholder" x-model="hide.secretMessage"  id="i00" type="text" placeholder="Hidden Message Here">
+          
+          </div>
+
+<br>
+
+          <div>
+
+            <label  for="i01">Carrier message:</label>
+
+            <br>
+
+            <textarea class="placeholder" x-model="hide.content"  id="i01" placeholder="Hi, how are you doing?"></textarea>
+          </div>
+
+<br>
+          <div>
+
+            <button class="button" @click="hide.submit()" >Hide Message</button>
+
+          </div>
+
+
+          <div x-show="hide.result !== ''" >
+
+            <br>
+
+            <label for="i02">Result:</label>
+
+            <br>
+
+            <textarea class="placeholder" :value="hide.result" readonly onclick="this.select()"  id="i02"></textarea>
+          
+          </div>
+
+        </div>
+
+      </div>
+
+      <div x-show="tab === 'reveal'" >
+
+        <h2>Reveal Message</h2>
+
+        <div>
+
+          <div>
+
+            <textarea class="placeholder" x-model="reveal.content"  id="i10" placeholder="Hi, how are you doing?"></textarea>
+          
+          </div>
+
+          <div>
+
+            <br>
+
+            <button class="button" @click="reveal.submit()">Reveal secret message!</button>
+
+          </div>
+
+<br>
+          <div>
+
+            <br>
+
+            <label for="i11">Secret message is:</label>
+
+            <br>
+
+            <textarea class="placeholder" :value="reveal.result" readonly onclick="this.select()"  id="i11"></textarea>
+          
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <br><br><br><br><br><br><br><br>
+
+    <footer>
+
+      <p>Made With ❤️ by <a href="https://hackur.netlify.app">Hackur</a></p>
+      
+    </footer>
+    
+    <style>
+
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+      }
+         
+      h1{
+        text-align: center;
+        color: rgb(0, 0, 0);
+        font-family: 'Courier New', Courier, monospace;
+        text-decoration: underline;
+      }
+
+      h2{
+        text-align: center;
+        color: rgb(0, 0, 0);
+      }
+      .button{
+       background-color: #4CAF50; /* Green */
+       border: none;
+       color: rgb(0, 0, 0);
+       padding: 16px 32px;
+       text-align: center;
+       text-decoration: none;
+       display: inline-block;
+       font-size: 16px;
+       margin: 4px 2px;
+       transition-duration: 0.4s;
+      cursor: pointer;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.button1 {
+  background-color: white; 
+  color: rgb(0, 0, 0); 
+  border: 2px solid #4CAF50;
+}
+
+label{
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      text-transform: uppercase;
+      color: rgb(255, 0, 0);
+      text-decoration: underline;
+}
+
+.placeholder {
+  outline: none;
+  padding: 12px;
+  border-radius: 3px;
+  border: 1px solid rgb(253, 0, 0);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+::-webkit-input-placeholder { /* Chrome */
+  color: red;
+  transition: opacity 250ms ease-in-out;
+}
+:focus::-webkit-input-placeholder {
+  opacity: 0.5;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: red;
+  transition: opacity 250ms ease-in-out;
+}
+:focus:-ms-input-placeholder {
+  opacity: 0.5;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: red;
+  opacity: 1;
+  transition: opacity 250ms ease-in-out;
+}
+:focus::-moz-placeholder {
+  opacity: 0.5;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: red;
+  opacity: 1;
+  transition: opacity 250ms ease-in-out;
+}
+:focus:-moz-placeholder {
+  opacity: 0.5;
+}
+.top1{
+  text-align: left;
+}
+
+.hide{
+  background-color: #008a05;
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer
+}
+
+.reveal{
+  background-color: #b30000;
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer
+}
+
+  </style>
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+    <script>
+      
+      const app_data = {
+  tab: 'hide',
+  hide: {
+    secretMessage: 'Hidden Message Here',
+    content: 'Hi, how are you doing?',
+    result: '',
+    submit() {
+      const converted = convertToZWC(this.secretMessage);
+      const where = Math.floor(this.content.length / 2);
+      this.result = this.content.slice(0, where) + '\u200e' + converted + '\u200f' + this.content.slice(where);
+    }
+  },
+  reveal: {
+    content: '',
+    result: '',
+    submit() {
+      const regex = /\u200e(.*?)\u200f/g;
+      const matches = this.content.matchAll(regex);
+      const matchesArr = [...matches];
+
+      if (matchesArr) {
+        const results = [];
+        matchesArr.forEach((match) => {
+          results.push(retrieveMessage(match[1]));
+        });
+
+        this.result = results.join('\n\n');
+      } else {
+        this.result = '';
+      }
+    }
+  }
+};
+
+const convertToZWC = (str) => {
+  const byteArr = Array.from(new TextEncoder().encode(str));
+  const bitArr = byteArr
+    .map((dec) => dec.toString(2).padStart(8, '0').split(''))
+    .flat();
+
+  return bitArr
+    .map((bit) => {
+      if (bit == 0) return '\u200b';
+      if (bit == 1) return '\u200c';
+    })
+    .join('');
+};
+
+const retrieveMessage = (zwdStr) => {
+  const bitArr = zwdStr.split('').map((c) => {
+    if (c == '\u200b') return '0';
+    if (c == '\u200c') return '1';
+  });
+  const byteArr = chunk(bitArr, 8).map((byteStr) => parseInt(byteStr, 2));
+  return new TextDecoder().decode(Uint8Array.from(byteArr));
+};
+
+const chunk = (array, size) => {
+  const chunked_arr = [];
+  let index = 0;
+  while (index < array.length) {
+    chunked_arr.push(array.slice(index, size + index).join(''));
+    index += size;
+  }
+  return chunked_arr;
+};
+
+    </script>
+
+  </body>
+
+</html>
